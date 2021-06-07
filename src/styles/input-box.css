@@ -1,0 +1,33 @@
+.text-input{
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+}
+
+.name-container {
+    width: 294px;
+    font-family: "Segoe UI";
+    font-size: 14px;
+    color: #010101;
+    margin-left:20px;
+    padding-top: 20px;
+    line-height: 1;
+}
+
+.text-input:hover .value-container:hover
+{
+    background-color: #f8f8f8;
+}
+
+.value-container {
+    width: 413px;
+    height: 24px;
+    font-family: "Segoe UI";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333333;
+    margin-top:8px;
+    border:1;
+    margin-left:20px;
+    outline: none;
+}

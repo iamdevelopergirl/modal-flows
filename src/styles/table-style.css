@@ -1,0 +1,50 @@
+table, th, td {
+    border: 1px solid black;
+}
+
+.table-header-container{
+    box-shadow: 1px 1px 1px 1px #dadada;
+    border: 1px;
+    color: white;
+    background-color: black;
+}
+
+.list-column-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-col-1{
+    flex-grow: 2;
+}
+
+.list-col-2{
+    flex-grow: 1;
+}
+
+.list-col-3{
+    flex-grow: 1;
+}
+.list-col-4{
+    flex-grow: 1;
+}
+.list-col-5{
+    flex-grow: 1;
+}
+
+.list-col-6{
+    flex-grow: 3;
+}
+
+.height-30{
+    height: 30px;
+}
+
+.border-white {
+    border-right: 1px solid white;
+}
+
+.data-container{
+    display: flex;
+    justify-content: space-between;
+}
