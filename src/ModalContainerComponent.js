@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import AddLeadModalComponent from './AddLeadComponent';
 import DeleteComponent from './DeleteComponent';
+import MarkUpdateComponent from './MarkUpdateComponent';
 import './styles/modal-component.css';
 
 function ModalContent(props) {
@@ -58,6 +59,9 @@ export default class ModalContainerComponent extends React.Component{
                 break;
             case "DeleteLead":
                 view = <DeleteComponent deleteId={this.props.deleteId} handleDelete={this.props.handleDelete} handleCancel={this.props.handleCancel}/>
+                break;
+            case "MarkUpdate":
+                view = <MarkUpdateComponent deleteId={this.props.deleteId} data={this.props.data} handleMarkUpdate={this.props.handleMarkUpdate} handleCancel={this.props.handleCancel}/>
                 break;
             default:
                 break;

@@ -108,6 +108,16 @@ export default class Main extends React.Component{
         });
     }
 
+    handleMarkUpdate = (id, value) => {
+        let oldResponse = this.state.responseData;
+        const index = oldResponse.findIndex(item => item.id === id);
+        oldResponse[index]["communication"] = value;
+        this.setState({
+            showModal : false,
+            responseData: oldResponse
+        });
+    }
+
     handleClose = () => {
         this.setState({
             showModal : false
@@ -129,6 +139,14 @@ export default class Main extends React.Component{
         });
     }
 
+    handleMarkUpdateModal = (id) => {
+        this.setState({
+            showModal : true,
+            modalType : "MarkUpdate",
+            deleteId : id
+        });
+    }
+
     render(){
         return(
             <div>
@@ -140,15 +158,17 @@ export default class Main extends React.Component{
                     
                     <div className="leads_table">
                         <TableHeaderComponent/>
-                        <TableDataComponentWrapper handleDeleteModal={this.handleDeleteModal} responseData={this.state.responseData}/>
+                        <TableDataComponentWrapper handleDeleteModal={this.handleDeleteModal} handleMarkUpdateModal={this.handleMarkUpdateModal} responseData={this.state.responseData}/>
                     </div>
 
                 {this.state.showModal ? <ModalContainerComponent modalType={this.state.modalType}
+                data={this.state.responseData}
                 deleteId={this.state.deleteId}
                 handleCancel={this.handleCancel} 
                 handleClose={this.handleClose}
                 handleDelete={this.handleDelete}
                 handleSave={this.handleSave}
+                handleMarkUpdate={this.handleMarkUpdate}
                 /> : null}
                 </div>
             </div>

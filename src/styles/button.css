@@ -10,7 +10,8 @@ button[disabled]{
 }
 
 .close_add_lead, 
-.cancel_delete_lead {
+.cancel_delete_lead,
+.cancel_mark_update {
     width: auto;
     height: 19px;
     font-family: "Segoe UI";

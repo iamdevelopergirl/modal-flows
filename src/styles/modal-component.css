@@ -24,7 +24,8 @@
 }
 
 .add_lead_form,
-.delete_lead_form{
+.delete_lead_form,
+.update_lead_form{
     width: 953px;;
     background-color: white;
     border: 1px solid black;
@@ -66,4 +67,14 @@
     height:40px;
     margin-top: 39px;
     margin-bottom: 30px;
+}
+
+.communication_textarea{
+    width: 900px;
+    height: 100px;
+    margin: 20px;
+}
+
+.communication_header{
+    margin-left: 20px;
 }
