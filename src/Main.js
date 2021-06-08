@@ -44,11 +44,14 @@ export default class Main extends React.Component{
         { method: 'DELETE' })
         .then((response) => {
             if(response.status === 200){
-                const index = oldResponse.findIndex(item => item.id === id);
-                oldResponse.splice(index, 1);
+                //API is timing out
+                //const index = oldResponse.findIndex(item => item.id === id);
+                //oldResponse.splice(index, 1);
             }
             console.log(response.status);
         });
+        const index = oldResponse.findIndex(item => item.id === id);
+        oldResponse.splice(index, 1);
         this.setState({
             showModal : false,
             responseData : oldResponse
@@ -92,10 +95,13 @@ export default class Main extends React.Component{
         })
         .then((response) => {
             if(response.status === 200){
-                oldResponse.push(addLeadData);
+                //API is not working as it is timing out.
+                //oldResponse.push(addLeadData);
             }
             console.log(response.status);
         });
+        //API is not working as it is timing out.
+        oldResponse.push(addLeadData);
         this.setState({
             showModal : false,
             responseData : oldResponse
