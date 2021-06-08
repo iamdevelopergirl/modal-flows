@@ -1,4 +1,4 @@
-import React, { isValidElement } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom'
 import AddLeadModalComponent from './AddLeadComponent';
 import DeleteComponent from './DeleteComponent';

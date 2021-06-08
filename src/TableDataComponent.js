@@ -39,9 +39,9 @@ const ListColumnsBody = [
 const TableDataComponentWrapper = (props) => {
     return(
         <div className="table-data-container">
-            {ListColumnsBody.map((listItem, index) => {
+            {props.responseData.map((listItem, index) => {
                 return (
-                    <TableDataComponent key={index} id={index + 1} item={listItem} handleDeleteModal={props.handleDeleteModal}/>
+                    <TableDataComponent key={listItem.id} id={listItem.id} item={listItem} handleDeleteModal={props.handleDeleteModal}/>
                 )
             })}
         </div>
@@ -52,23 +52,25 @@ const TableDataComponent = (props) => {
     return(
         <div className="data-container">
             <div className={`list-col-1`}>
-                {props.item.name}
+                <p>
+                 {props.item.first_name} {props.item.last_name}
+                </p> 
             </div>
             <div className={`list-col-2`}>
                 {props.item.email}
             </div>
             <div className={`list-col-3`}>
-                {props.item.mobileNum}
+                {props.item.mobile}
             </div>
             <div className={`list-col-4`}>
-                {props.item.locType}
+                {props.item.location_type}
             </div>
             <div className={`list-col-5`}>
-                {props.item.locString}
+                {props.item.location_string}
             </div>
             <div className={`list-col-6`}>
-                <ButtonComponent className="delete_lead_btn" name="Mark Update" onClick={props.handleMarkUpdate}/>
-                <ButtonComponent className="close_add_lead" name="Delete" onClick={props.handleDeleteModal}/>    
+                <ButtonComponent id={props.id} className="mark_update_btn" name="Mark Update" onClick={props.handleMarkUpdate}/>
+                <ButtonComponent id={props.id} className="close_delete_lead_main" name="Delete" onClick={props.handleDeleteModal}/>    
             </div>
         </div>
     )

@@ -5,6 +5,7 @@ import Main from './Main';
 import * as serviceWorker from './serviceWorker';
 
 // BACKEND ENDPOINT BASE URL
+console.log("backend url")
 console.log(process.env.REACT_APP_API_URL);
 
 ReactDOM.render(<Main />, document.getElementById('root'));

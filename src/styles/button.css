@@ -2,3 +2,23 @@
     background-color: black;
     color: white;
 }
+
+button:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.close_add_lead, 
+.cancel_delete_lead {
+    width: auto;
+    height: 19px;
+    font-family: "Segoe UI";
+    font-size: 14px;
+    color: black;
+    background: none;
+    cursor:pointer;
+    line-height: 1;
+    font-size: 14px;
+    border: none;
+}

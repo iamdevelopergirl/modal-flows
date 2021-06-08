@@ -1,4 +1,4 @@
-import React, { isValidElement } from 'react';
+import React from 'react';
 import ButtonComponent from './ButtonComponent';
 import LocationTypeComponent from './LocationTypeComponent';
 import InputComponent from './InputComponent';
@@ -13,6 +13,7 @@ export default class AddLeadModalComponent extends React.Component {
             last_name : "",
             email : "",
             mobile : "",
+            location_type : "City",
             location_string : ""
         }
     }
@@ -57,7 +58,22 @@ export default class AddLeadModalComponent extends React.Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
+      let addLeadData = {
+        "first_name" : this.state.first_name,
+        "last_name" : this.state.last_name,
+        "mobile" : this.state.mobile,
+        "email" : this.state.email,
+        "location_type" : this.state.location_type,
+        "location_string" : this.state.location_string
+      }
+      fetch("http://35.175.131.85:4000/api/leads/", 
+      { method: 'POST',
+        body : JSON.stringify(addLeadData) 
+      })
+      .then((response) => {
+          console.log(response.status);
+      });
+      event.preventDefault();
     }
 
     _handleChange = (event) => {
@@ -78,9 +94,12 @@ export default class AddLeadModalComponent extends React.Component {
     render(){
         return (
         <form className="add_lead_form" onSubmit={this.handleSubmit}>
-          <header className="add-lead-header">
-              Add Lead
-          </header>  
+          <div className="header_container">
+            <header className="add-lead-header">
+                Add Lead
+            </header>  
+          </div>
+          <div className="add_lead_form_container">
           <section className="add-lead-input-container">
             <InputComponent
               title="First Name"
@@ -94,6 +113,8 @@ export default class AddLeadModalComponent extends React.Component {
               value={this.state.lastName}
               onChange={this._handleChange}
             />
+          </section>
+          <section className="add-lead-input-container">
             <InputComponent
               title="Email"
               name="email"
@@ -106,6 +127,8 @@ export default class AddLeadModalComponent extends React.Component {
               value={this.state.mobile}
               onChange={this._handleChange}
             />
+          </section>
+          <section className="add-lead-input-container">
             <LocationTypeComponent
               title="Location Type"
               onChange={this.handleChange}
@@ -121,6 +144,8 @@ export default class AddLeadModalComponent extends React.Component {
             <ButtonComponent className="close_add_lead" name="Close" onClick={this.props.handleClose}/>
             <ButtonComponent className="add_lead_btn" name="Save" onClick={() => this.props.handleSave(this.state)} disabled={this.state.saveDisabled}/>
           </section>
+          </div>
+          
         </form>
         )
     }
