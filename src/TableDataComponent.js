@@ -68,8 +68,8 @@ const TableDataComponent = (props) => {
                 {props.item.location_string}
             </div>
             <div className={`list-col-6`}>
-                <ButtonComponent id={props.id} className="mark_update_btn" name="Mark Update" onClick={props.handleMarkUpdate}/>
-                <ButtonComponent id={props.id} className="close_delete_lead_main" name="Delete" onClick={() => props.handleDeleteModal(props.id)}/>    
+                <ButtonComponent id={props.id} className="update_lead_modal_btn mark_update_btn" name="Mark Update" onClick={props.handleMarkUpdate}/>
+                <ButtonComponent id={props.id} className="delete_lead_modal_btn close_delete_lead_main" name="Delete" onClick={() => props.handleDeleteModal(props.id)}/>    
             </div>
         </div>
     )

@@ -4,7 +4,7 @@ const LocationTypeComponent = (props) => {
     return(
         <div>
         <div className="text-container">{props.title}</div>
-        <select className="value-container" onChange={props.handleChange}>
+        <select name="location_type" className="value-container" onChange={props.handleChange}>
             <option value="City">City</option>
             <option value="Zip">Zip</option>
             <option value="Country">Country</option>
