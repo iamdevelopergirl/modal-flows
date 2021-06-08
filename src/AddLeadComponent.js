@@ -66,7 +66,7 @@ export default class AddLeadModalComponent extends React.Component {
         "location_type" : this.state.location_type,
         "location_string" : this.state.location_string
       }
-      fetch("http://35.175.131.85:4000/api/leads/", 
+      fetch("http://3.227.13.153:4000/api/leads/", 
       { method: 'POST',
         body : JSON.stringify(addLeadData) 
       })

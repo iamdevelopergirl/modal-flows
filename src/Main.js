@@ -17,7 +17,7 @@ export default class Main extends React.Component{
     }
 
     componentDidMount(){
-        fetch("http://35.175.131.85:4000/api/leads/?location_string=India", { method: 'GET' })
+        fetch("http://3.227.13.153:4000/api/leads/?location_string=India", { method: 'GET' })
         .then((response) => {
             console.log(response.status);
             if(response.status === 200){

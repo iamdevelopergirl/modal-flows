@@ -49,12 +49,11 @@ const TableDataComponentWrapper = (props) => {
 }
 
 const TableDataComponent = (props) => {
+    let name = `${props.item.first_name} ${props.item.last_name}`;
     return(
         <div className="data-container">
             <div className={`list-col-1`}>
-                <p>
-                 {props.item.first_name} {props.item.last_name}
-                </p> 
+                {name}
             </div>
             <div className={`list-col-2`}>
                 {props.item.email}
