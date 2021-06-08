@@ -58,21 +58,6 @@ export default class AddLeadModalComponent extends React.Component {
     }
 
     handleSubmit = (event) => {
-      let addLeadData = {
-        "first_name" : this.state.first_name,
-        "last_name" : this.state.last_name,
-        "mobile" : this.state.mobile,
-        "email" : this.state.email,
-        "location_type" : this.state.location_type,
-        "location_string" : this.state.location_string
-      }
-      fetch("http://3.227.13.153:4000/api/leads/", 
-      { method: 'POST',
-        body : JSON.stringify(addLeadData) 
-      })
-      .then((response) => {
-          console.log(response.status);
-      });
       event.preventDefault();
     }
 

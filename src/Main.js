@@ -61,6 +61,7 @@ export default class Main extends React.Component{
 
     handleSave = (state) => {
         //call the api
+        let oldResponse = this.state.responseData;
         let addLeadData = {
             "id" : this.createNewGuid(),
             "first_name" : state.first_name,
@@ -72,14 +73,20 @@ export default class Main extends React.Component{
           }
         fetch("http://35.175.131.85:4000/api/leads/", 
         { method: 'POST',
-          body : JSON.stringify(addLeadData) 
+          body : JSON.stringify(addLeadData),
+          headers : {
+            'Content-Type': 'application/json'
+          }
         })
         .then((response) => {
+            if(response.status === 200){
+                oldResponse.push(addLeadData);
+            }
             console.log(response.status);
         });
-        
         this.setState({
-            showModal : false
+            showModal : false,
+            responseData : oldResponse
         });
     }
 
