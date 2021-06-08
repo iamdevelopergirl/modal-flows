@@ -12,7 +12,8 @@ export default class Main extends React.Component{
         this.state = {
             showModal : false,
             modalType : "",
-            responseData : []
+            responseData : [],
+            deleteId : "",
         }
     }
 
@@ -36,10 +37,21 @@ export default class Main extends React.Component{
         })
     }
 
-    handleDelete = () => {
+    handleDelete = (id) => {
         //call the api
+        let oldResponse =  this.state.responseData;
+        fetch(`http://35.175.131.85:4000/api/leads/${id}`, 
+        { method: 'DELETE' })
+        .then((response) => {
+            if(response.status === 200){
+                const index = oldResponse.findIndex(item => item.id === id);
+                oldResponse.splice(index, 1);
+            }
+            console.log(response.status);
+        });
         this.setState({
-            showModal : false
+            showModal : false,
+            responseData : oldResponse
         });
     }
 
@@ -103,10 +115,11 @@ export default class Main extends React.Component{
         });
     }
 
-    handleDeleteModal = () => {
+    handleDeleteModal = (id) => {
         this.setState({
             showModal : true,
-            modalType : "DeleteLead"
+            modalType : "DeleteLead",
+            deleteId : id
         });
     }
 
@@ -124,7 +137,8 @@ export default class Main extends React.Component{
                         <TableDataComponentWrapper handleDeleteModal={this.handleDeleteModal} responseData={this.state.responseData}/>
                     </div>
 
-                {this.state.showModal ? <ModalContainerComponent modalType={this.state.modalType} 
+                {this.state.showModal ? <ModalContainerComponent modalType={this.state.modalType}
+                deleteId={this.state.deleteId}
                 handleCancel={this.handleCancel} 
                 handleClose={this.handleClose}
                 handleDelete={this.handleDelete}

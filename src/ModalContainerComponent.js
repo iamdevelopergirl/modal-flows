@@ -57,7 +57,7 @@ export default class ModalContainerComponent extends React.Component{
                 view = <AddLeadModalComponent handleSave={this.props.handleSave} handleClose={this.props.handleClose}/>
                 break;
             case "DeleteLead":
-                view = <DeleteComponent handleDelete={this.props.handleDelete} handleCancel={this.props.handleCancel}/>
+                view = <DeleteComponent deleteId={this.props.deleteId} handleDelete={this.props.handleDelete} handleCancel={this.props.handleCancel}/>
                 break;
             default:
                 break;

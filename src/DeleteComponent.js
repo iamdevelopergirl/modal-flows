@@ -12,7 +12,7 @@ const DeleteComponent = (props) => {
                     </header>  
                 </div>
                 <section className="delete-lead-action-container">
-                    <ButtonComponent className="delete_lead_btn" name="Delete" onClick={props.handleDelete}/>
+                    <ButtonComponent className="delete_lead_btn" name="Delete" onClick={() => props.handleDelete(props.deleteId)}/>
                     <ButtonComponent className="cancel_delete_lead" name="Cancel" onClick={props.handleCancel}/>    
                 </section>
             </div>

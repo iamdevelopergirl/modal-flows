@@ -69,7 +69,7 @@ const TableDataComponent = (props) => {
             </div>
             <div className={`list-col-6`}>
                 <ButtonComponent id={props.id} className="mark_update_btn" name="Mark Update" onClick={props.handleMarkUpdate}/>
-                <ButtonComponent id={props.id} className="close_delete_lead_main" name="Delete" onClick={props.handleDeleteModal}/>    
+                <ButtonComponent id={props.id} className="close_delete_lead_main" name="Delete" onClick={() => props.handleDeleteModal(props.id)}/>    
             </div>
         </div>
     )
